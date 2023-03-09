@@ -9,7 +9,7 @@
 
 struct VertexBuffers {
     std::vector<float> VertexPosition;
-    std::vector<float> VertexTexture;
+    // std::vector<float> VertexTexture;
 
 };
 
@@ -19,14 +19,14 @@ class GameObject {
         glm::vec2 Position;
         glm::vec2 Size;
         float Rotate;
-        float Velocity;
+        float Velocity; //Forse questa variabile qui non è necessaria...basta metterla nello Snake o un gameObj
         glm::vec3 Color;
 
 
     public:
         GameObject() {};
         GameObject(const char* vertexShader, const char* fragmentShader, VertexBuffers& vertexBuffer, glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color);
-        GameObject(const char* vertexShader, const char* fragmentShader, VertexBuffers& vertexBuffers, TextureSettings& textureSettings, glm::vec2 position, glm::vec2 size, float rotate, float velocity, glm::vec3 color);
+        // GameObject(const char* vertexShader, const char* fragmentShader, VertexBuffers& vertexBuffers, TextureSettings& textureSettings, glm::vec2 position, glm::vec2 size, float rotate, float velocity, glm::vec3 color);
 
         void onRenderer(glm::mat4 projection);
         void onDestroy();

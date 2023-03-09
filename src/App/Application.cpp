@@ -72,7 +72,7 @@ void Application::Init(){
 
 
     //Init Game
-
+    game.onInit(SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 /* ============================================================================================== */
@@ -84,7 +84,7 @@ void Application::MainLoop() {
 
 
         //Game Renderer
-        
+        game.onRenderer();
 
         glfwSwapBuffers(m_window);
         glfwPollEvents();
@@ -97,7 +97,7 @@ void Application::MainLoop() {
 void Application::Destroy() {
 
     //Game Destroy
-    
+    game.onDestroy();
 
     glfwDestroyWindow(m_window);
     glfwTerminate();
@@ -115,6 +115,7 @@ void Application::key_callback(GLFWwindow* window, int key, int scancode, int ac
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
+    //Game Input
     if (key >= 0 && key < 1024)
     {
         if (action == GLFW_PRESS)

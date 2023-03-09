@@ -5,6 +5,9 @@ LDOPENGLFLAGS = -lGL -lGLEW -lglfw
 
 FILE_SOURCE_APP = src/*.cpp \
 					src/App/*.cpp \
+					src/Game/*.cpp \
+					src/Core/Graphics/*.cpp \
+					src/Core/Entity/*.cpp 
 
 		
 
