@@ -1,7 +1,8 @@
 #ifndef __APPLICATION_HPP__
+#define __APPLICATION_HPP__
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+
+#include "../Game/Game.hpp"
 
 class Application {
 
