@@ -15,9 +15,11 @@ class Snake : public GameObject{
         void onDestroy();
 
     private:
-        GameObject gameObj;
+        GameObject gameObj[3];
+        std::vector<GameObject> Snake_Parts;
     public:
-        GameObject& GetGameObject() { return gameObj; }
+        GameObject& GetGameObject(unsigned int index) { return gameObj[index]; }
+        std::vector<GameObject> GetVectorGameObject() { return Snake_Parts; }
 };
 
 #endif //__SNAKE_HPP__
