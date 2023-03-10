@@ -18,8 +18,8 @@ class Snake : public GameObject{
         GameObject gameObj[3];
         std::vector<GameObject> Snake_Parts;
     public:
-        GameObject& GetGameObject(unsigned int index) { return gameObj[index]; }
-        std::vector<GameObject> GetVectorGameObject() { return Snake_Parts; }
+        GameObject GetGameObject(unsigned int index) { return gameObj[index]; }
+        // std::vector<GameObject> GetVectorGameObject() { return Snake_Parts; }
 };
 
 #endif //__SNAKE_HPP__

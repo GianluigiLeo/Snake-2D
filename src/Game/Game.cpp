@@ -9,8 +9,6 @@ glm::mat4 projection = glm::mat4(1.0f);
 
 
 #include "Snake.hpp"
-// Snake snake_part[3];
-// std::vector<Snake> snake_parts;// <-- da controllare
 Snake snake;
 
 /* ============================================================================================== */
@@ -23,7 +21,7 @@ void Game::onInit(unsigned int screen_width, unsigned int screen_height) {
 
 
     snake = Snake(  glm::vec2(0.0f, 0.0f),          //Position
-                    glm::vec2(32.0f, 32.0f),        //Size
+                    glm::vec2(16.0f, 16.0f),        //Size
                     0.0f,                           //Rotation
                     100.0f,                         //Velocity
                     glm::vec3(0.5f, 1.0f, 1.0f)     //Color)
@@ -36,9 +34,6 @@ void Game::onInit(unsigned int screen_width, unsigned int screen_height) {
 void Game::onUpdate(){
 
     
-
-    
-
 }
 
 /* ============================================================================================== */

@@ -78,9 +78,9 @@ Snake::Snake(glm::vec2 position, glm::vec2 size, float rotate, float velocity, g
                             );
 
     Snake_Parts = {
-        gameObj[0],
-        gameObj[1],
-        gameObj[2],
+        gameObj[0], //HEAD
+        gameObj[1], //BODY
+        gameObj[2], //TAIL
     };
 }
 
@@ -91,7 +91,7 @@ Snake::Snake(glm::vec2 position, glm::vec2 size, float rotate, float velocity, g
 /* ============================================================================================== */
 void Snake::onUpdate() {
 
-    Snake_Parts.push_back(gameObj[0]);
+    // Snake_Parts.push_back(gameObj[0]);
 }
 
 /* ============================================================================================== */
@@ -114,33 +114,40 @@ void Snake::onInput(bool Keys[], float dt) {
 
 
     float velocity = Velocity * dt;
+    
 
     if(Keys[GLFW_KEY_LEFT]){
-        // gameObj[0].Position.x -= velocity;
-        for(auto &snakeParts : Snake_Parts){
-            snakeParts.Position.x -= velocity;
+        if(Snake_Parts.at(0).Position.x -= velocity){
+            Snake_Parts.at(1).Position = glm::vec2(Snake_Parts.at(0).Position.x + Size.x, Snake_Parts.at(0).Position.y);
+            Snake_Parts.at(2).Position = glm::vec2(Snake_Parts.at(1).Position.x + Size.x, Snake_Parts.at(1).Position.y);
+            
         }
+
+        
+        
     }
         
     
     if(Keys[GLFW_KEY_RIGHT]){
-        // gameObj[0].Position.x += velocity;
-        for(auto &snakeParts : Snake_Parts){
-            snakeParts.Position.x += velocity;
+        if(Snake_Parts.at(0).Position.x += velocity){
+            Snake_Parts.at(1).Position = glm::vec2(Snake_Parts.at(0).Position.x - Size.x, Snake_Parts.at(0).Position.y);
+            Snake_Parts.at(2).Position = glm::vec2(Snake_Parts.at(1).Position.x - Size.x, Snake_Parts.at(1).Position.y);
         }
        
     }
     if(Keys[GLFW_KEY_UP]){
-        // gameObj[0].Position.y -= velocity;
-        for(auto &snakeParts : Snake_Parts){
-            snakeParts.Position.y -= velocity;
+        if(Snake_Parts.at(0).Position.y -= velocity){
+            Snake_Parts.at(1).Position = glm::vec2(Snake_Parts.at(0).Position.x, Snake_Parts.at(0).Position.y + Size.y);
+            Snake_Parts.at(2).Position = glm::vec2(Snake_Parts.at(1).Position.x, Snake_Parts.at(1).Position.y + Size.y);
         }
+
        
     }
     if(Keys[GLFW_KEY_DOWN]){
-        // gameObj[0].Position.y += velocity;
-        for(auto &snakeParts : Snake_Parts){
-            snakeParts.Position.y += velocity;
+        if(Snake_Parts.at(0).Position.y += velocity){
+            Snake_Parts.at(1).Position = glm::vec2(Snake_Parts.at(0).Position.x, Snake_Parts.at(0).Position.y - Size.y);
+            Snake_Parts.at(2).Position = glm::vec2(Snake_Parts.at(1).Position.x, Snake_Parts.at(1).Position.y - Size.y);
+
         }
        
     }
